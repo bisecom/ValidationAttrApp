@@ -3,6 +3,8 @@ using System.Threading.Tasks;
 using System.Net;
 using System.Web.Mvc;
 using ValidationAttrApp.Models;
+using System.Linq;
+using System.Diagnostics;
 
 namespace ValidationAttrApp.Controllers
 {
@@ -109,6 +111,21 @@ namespace ValidationAttrApp.Controllers
             db.Students.Remove(student);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public JsonResult CheckPassport(string PassportId)
+        {
+            Debug.WriteLine("Hello CheckPassport");
+            bool result;
+            var studentsList = db.Students.ToListAsync().Result;
+            var matchingStudent = studentsList.Find(x => x.PassportId == PassportId);
+            if(matchingStudent == null)
+                result = true;
+            else
+                result = false;
+
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
 
         protected override void Dispose(bool disposing)

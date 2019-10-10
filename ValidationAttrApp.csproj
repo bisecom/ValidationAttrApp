@@ -132,6 +132,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201910091807115_InitialCreate.cs" />
+    <Compile Include="Migrations\201910091807115_InitialCreate.Designer.cs">
+      <DependentUpon>201910091807115_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910101816333_MigrateDB.cs" />
+    <Compile Include="Migrations\201910101816333_MigrateDB.Designer.cs">
+      <DependentUpon>201910101816333_MigrateDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\StudentContext.cs" />
     <Compile Include="Models\StudentsAgeValidationAttribute.cs" />
@@ -227,6 +236,14 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201910091807115_InitialCreate.resx">
+      <DependentUpon>201910091807115_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910101816333_MigrateDB.resx">
+      <DependentUpon>201910101816333_MigrateDB.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

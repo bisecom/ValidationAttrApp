@@ -29,7 +29,7 @@ namespace ValidationAttrApp.Models
         [Display(Name = "Date of Birthday")]
         [Required(ErrorMessage = "Field 'Birthday' should be filled in!")]
         [RegularExpression(@"\d{4}\/(0[1-9]|1[012])\/(0[1-9]|[12][0-9]|3[01])", ErrorMessage = "Birthday should have format as yyyy/MM/dd")]
-        [StudentsAgeValidation(ErrorMessage = "Your age is too huge to become a student!!")] //Custom Validator
+        [StudentsAgeValidation(ErrorMessage = "Sorry, but our students age should be between 15 and 40 years!!")] //Custom Validator
         public string Birthdate { get; set; }
 
         [Display(Name = "Postal Address")]
@@ -54,7 +54,7 @@ namespace ValidationAttrApp.Models
         public string ConfirmPassword { get; set; }
 
         [Display(Name = "Enterence Year")]
-        [StringLength(4, MinimumLength = 4, ErrorMessage = "Year should be in format 'yyyy'")]
+        [RegularExpression(@"[0-9]{4}", ErrorMessage = "Year should be in format 'yyyy'")]
         public string EnterenceYear { get; set; }
 
         [Display(Name = "Description Group")]
