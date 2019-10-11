@@ -116,7 +116,6 @@ namespace ValidationAttrApp.Controllers
         [HttpGet]
         public JsonResult CheckPassport(string PassportId)
         {
-            Debug.WriteLine("Hello CheckPassport");
             bool result;
             var studentsList = db.Students.ToListAsync().Result;
             var matchingStudent = studentsList.Find(x => x.PassportId == PassportId);

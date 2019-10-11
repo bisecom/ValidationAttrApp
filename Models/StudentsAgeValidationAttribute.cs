@@ -12,16 +12,14 @@ namespace ValidationAttrApp.Models
         public override bool IsValid(object value)
         {
             DateTime studendBirthday;
-            Debug.WriteLine("Hello out");
-            Trace.Write("Trace Out");
+
             if (value != null)
             {
                 try
                 {
                     studendBirthday = Convert.ToDateTime(value);
-                    Debug.WriteLine("Hello in");
-                    if (studendBirthday != null && (DateTime.Now.Subtract(studendBirthday)).TotalDays >= 40 || 
-                        studendBirthday != null && (DateTime.Now.Subtract(studendBirthday)).TotalDays <= 15)
+                    int studentAge = Convert.ToInt32((DateTime.Now.Subtract(studendBirthday)).TotalDays/365);
+                    if (studendBirthday != null && studentAge >= 40 || studendBirthday != null && studentAge <= 15)
                     {
                         return false;
                     }
